@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ESD401DPYR
+D 1-Channel ESD Protection Diode
+K
+F http://www.ti.com/lit/ds/symlink/esd401.pdf
+$ENDCMP
+#
+#End Doc Library
