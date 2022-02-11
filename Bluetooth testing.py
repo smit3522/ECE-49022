@@ -2,6 +2,7 @@
 # SCROLL DOWN TO BOTTOM FOR ACTUALLY SENDING DATA, MOST OF THE STUFF IS NUS ^^^ PROTOCOLS
 
 import bluetooth
+import esp32
 import struct
 from micropython import const
 
@@ -160,7 +161,7 @@ def demo(): #important note, uses bluetooth LE, which will connect to your lapto
     
     
     
-    words = ["hey", "how", "are", "you", "doing", "?"]
+    numbers = ["1", "2", "3", "4", "5"]
     i = 0
     try: #used to send data
         while True:
@@ -168,14 +169,13 @@ def demo(): #important note, uses bluetooth LE, which will connect to your lapto
                 rled.on()
             else:
                 rled.off()
-            uart.write(words[i] + "\n")  #will send words array 1 by 1, every second
-            i = (i + 1) % len(words)
-            time.sleep_ms(1000)
+            uart.write(numbers[i] + "\n")  #will send words array 1 by 1, every second
+            i = (i + 1) % len(numbers)
+            time.sleep_ms(500) #can change speed of data sent
     except KeyboardInterrupt:
         pass
 
     uart.close()
-
 
 if __name__ == "__main__":
     demo()
