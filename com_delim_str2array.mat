@@ -16,16 +16,24 @@ while i <= length(char_array)
                 y(j)=(-1*str2double(char_array(i-1)));
             elseif(count == 3)
                 y(j)=-1*((str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
-            else
+            elseif(count == 4)
                 y(j)=-1*((str2double(char_array(i-3))*100) + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
+            elseif(count == 5)
+                y(j)=-1*((str2double(char_array(i-4))*1000) + (str2double(char_array(i-3))*100) + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
+            elseif(count == 6)
+                y(j)=-1*((str2double(char_array(i-5))*10000) + (str2double(char_array(i-4))*1000) + (str2double(char_array(i-3))*100) + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
             end
         else
             if(count == 1)
                 y(j)=(str2double(char_array(i-1)));
             elseif(count == 2)
-                y(j)=(str2double(char_array(i-2))*10) + (str2double(char_array(i-1)));
-            else
-                y(j)=(str2double(char_array(i-3))*100) + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1)));
+                y(j)=((str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
+            elseif(count == 3)
+                y(j)=((str2double(char_array(i-3))*100) + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
+            elseif(count == 4)
+                y(j)=((str2double(char_array(i-4))*1000) + (str2double(char_array(i-3))*100) +  + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
+            elseif(count == 5)
+                y(j)=((str2double(char_array(i-5))*10000) + (str2double(char_array(i-4))*1000) + (str2double(char_array(i-3))*100) + (str2double(char_array(i-2))*10) + (str2double(char_array(i-1))));
             end
         end
         j=j+1;
@@ -36,19 +44,27 @@ while i <= length(char_array)
         if(i == length(char_array))
             if(markNeg == 1)
                 if(count == 2)
-                    y(j)=-1*(str2double(char_array(i)));
+                    y(j)=(-1*str2double(char_array(i)));
                 elseif(count == 3)
                     y(j)=-1*((str2double(char_array(i-1))*10) + (str2double(char_array(i))));
-                else
+                elseif(count == 4)
                     y(j)=-1*((str2double(char_array(i-2))*100) + (str2double(char_array(i-1))*10) + (str2double(char_array(i))));
+                elseif(count == 5)
+                    y(j)=-1*((str2double(char_array(i-3))*1000) + (str2double(char_array(i-2))*100) +  + (str2double(char_array(i-1))*10) + (str2double(char_array(i))));
+                elseif(count == 6)
+                    y(j)=-1*((str2double(char_array(i-4))*10000) + (str2double(char_array(i-3))*1000) + (str2double(char_array(i-2))*100) + (str2double(char_array(i-1))*10) + (str2double(char_array(i))));
                 end
             else
                 if(count == 1)
                     y(j)=(str2double(char_array(i)));
                 elseif(count == 2)
-                    y(j)=(str2double(char_array(i-1))*10) + (str2double(char_array(i)));
-                else
-                    y(j)=(str2double(char_array(i-2))*100) + (str2double(char_array(i-1))*10) + (str2double(char_array(i)));
+                    y(j)=((str2double(char_array(i-1))*10) + (str2double(char_array(i))));
+                elseif(count == 3)
+                    y(j)=((str2double(char_array(i-2))*100) + (str2double(char_array(i-1))*10) + (str2double(char_array(i))));
+                elseif(count == 4)
+                    y(j)=((str2double(char_array(i-3))*1000) + (str2double(char_array(i-2))*100) +  + (str2double(char_array(i-1))*10) + (str2double(char_array(i))));
+                elseif(count == 5)
+                    y(j)=((str2double(char_array(i-4))*10000) + (str2double(char_array(i-3))*1000) + (str2double(char_array(i-2))*100) + (str2double(char_array(i-1))*10) + (str2double(char_array(i))));
                 end
             end
         end
