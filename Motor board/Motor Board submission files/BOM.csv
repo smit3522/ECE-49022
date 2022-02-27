@@ -1,0 +1,11 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"IC4,IC1";"SOT65P210X110-3N";2;"TPD2E2U06DCKR";;;
+2;"IC2,IC3";"SOIC127P780X200-14N";2;"SN74HC125NSR";;;
+3;"Barrel_Jack1";"BarrelJack_CUI_PJ-036AH-SMT_Horizontal";1;"Barrel_Jack";;;
+4;"C1,C2";"C_0805_2012Metric";2;"0.1uf";;;
+5;"C3,C4,C5,C6,C7,C8";"C_0805_2012Metric";6;"10uf";;;
+6;"D1";"LED_1806_4516Metric_Pad1.57x1.80mm_HandSolder";1;"LED";;;
+7;"ESP1";"ESP32WROOM32EM113EH3200PH3Q0";1;"ESP32-WROOM-32E_M113EH3200PH3Q0_";;;
+8;"Motor1Conn1,Motor2Conn1,Motor3Conn1,Motor4Conn1,Motor5Conn1,Motor6Conn1";"PinSocket_1x03_P2.54mm_Vertical";6;"Conn_01x03_Female";;;
+9;"R1,R2,R3,R4,R5,R6,R8,R9,R10,R11,R12,R13";"R_0805_2012Metric_Pad1.15x1.40mm_HandSolder";12;"10k";;;
+10;"R7";"R_0805_2012Metric_Pad1.15x1.40mm_HandSolder";1;"150";;;
