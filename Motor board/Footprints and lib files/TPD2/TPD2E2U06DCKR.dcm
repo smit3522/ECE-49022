@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPD2E2U06DCKR
+D ESD Suppressors / TVS Diodes
+K
+F https://www.ti.com/lit/gpn/TPD2E2U06
+$ENDCMP
+#
+#End Doc Library
