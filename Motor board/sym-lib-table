@@ -1,6 +1,0 @@
-(sym_lib_table
-  (lib (name CD4504)(type Legacy)(uri "C:/Users/jsmit/Desktop/ECE 49022/Motor board/Footprints and lib files/CD450/CD4504BME4.lib")(options "")(descr ""))
-  (lib (name ESP32)(type Legacy)(uri "C:/Users/jsmit/Desktop/ECE 49022/Motor board/Footprints and lib files/ESP32/ESP32-WROOM-32E_M113EH3200PH3Q.lib")(options "")(descr ""))
-  (lib (name TPD2)(type Legacy)(uri "C:/Users/jsmit/Desktop/ECE 49022/Motor board/Footprints and lib files/TPD2/TPD2E2U06DCKR.lib")(options "")(descr ""))
-  (lib (name 74HC125)(type Legacy)(uri "C:/Users/jsmit/Desktop/ECE 49022/Motor board/Footprints and lib files/SN74HC125/SN74HC125NSR.lib")(options "")(descr ""))
-)
