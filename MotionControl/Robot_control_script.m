@@ -84,7 +84,8 @@ addBody(robot,body6,'body5')
 %     fprintf('%f %f %f %f %f %f\n',configuration.JointPosition);
 %     show(robot, configuration);
 %     drawnow
+%     waitforbuttonpress
 % end
-
+% 
 
 
