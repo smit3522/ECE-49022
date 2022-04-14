@@ -1,12 +1,21 @@
-A  = [.5 1 0; 0 .5 0; 0 0 0];
-B = [1 1; 0 1;1 0];
+i = 1;
+bound = 1;
+bestA = 0;
+while(1)
+    r = -10 + (10 - -10) .* rand(4,1);
+    A = [r(1) r(2); r(3) r(4)];
+    eig_A = eig(A);
 
-Wr = 0;
+    eat = expm(A);
+    eig_eat = eig(eat);
 
-for i=0:1:1000
-    Wr_i = (A^i)*B*B'*((A')^i);
-    Wr = Wr + Wr_i;
+    if(norm(eig_A-eig_eat)<=bound)
+        eig_A
+        eig_eat
+        pause(2)
+        bestA = A;
+        bound = bound - 0.02;
+        
+    end
+    i = i + 1;
 end
-    
-Wr_iterative = Wr
-Wr_lyap =dlyap(A,B*B')
