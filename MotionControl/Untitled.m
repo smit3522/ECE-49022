@@ -1,21 +1,31 @@
-i = 1;
-bound = 1;
-bestA = 0;
-while(1)
-    r = -10 + (10 - -10) .* rand(4,1);
-    A = [r(1) r(2); r(3) r(4)];
-    eig_A = eig(A);
-
-    eat = expm(A);
-    eig_eat = eig(eat);
-
-    if(norm(eig_A-eig_eat)<=bound)
-        eig_A
-        eig_eat
-        pause(2)
-        bestA = A;
-        bound = bound - 0.02;
-        
+B = [0;1];
+C = [0 1];
+k = [-1.5 2];
+l = [1.5;2];
+Tfinal = 100;
+x0 = [2;2;1;1];
+w_unstable =[];
+figure
+hold on
+for w=-100:0.1:100
+    A = [0 w; -w 0];
+ 
+    ConObsA = [A -B*k; l*C A-l*C-B*k];
+    sys = ss(ConObsA,[],[],[]);
+    [y,t,x] = initial(sys,x0,Tfinal);
+    X = [x(:,1) x(:,2)];
+    X_hat = [x(:,3) x(:,4)];
+ 
+    err = [];
+    for i=1:length(X(:,1))
+        err = [err; norm(X(i,:) - X_hat(i,:))];
     end
-    i = i + 1;
+    
+    if(err(end) <= 0.01)
+        plot(t,err)
+    end
+    if(err(end) > 0.01)
+        w_unstable = [w_unstable w];
+    end
+    
 end

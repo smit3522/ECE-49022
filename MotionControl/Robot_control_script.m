@@ -5,8 +5,9 @@ read_key = '47KPQDZZ512O66JY';
 % preview(Camera)
 Ts = 0.01;
 Fs = 1/Ts;
-% fuse = imufilter('SampleRate',Fs,'DecimationFactor',2);
 Time_to_wait = [1 10]; %time in between values to sample signals
+min_pwm_change = 0.39;
+weights = [1 1 1 1 1 1]; %weughts for inverse kinematics
 
 
 Ts = 0.01;
@@ -17,19 +18,19 @@ PWM_neg60_position = [5 5 5 5 5 5]; %PWM duty cycle in %
 
 PWM_init_pos = (PWM_pos60_position - PWM_neg60_position)/2;
 
+change_pos_z = 0;
+Initial_pos = [20 20 10];
+
 %% Define Robot Parameters
 % DH-Parameters [theta, alpha, a, d]
+%alpha = [-pi/2 0 -pi/2 pi/2 -pi/2 0];
+%the = [ 0 -pi/2 0 0 0 pi];
 
-alpha = [-pi/2 0 -pi/2 pi/2 -pi/2 0];
-the = [ 0 -pi/2 0 0 0 pi];
-
-%d measured from gold rotation gear to oi rotation
+alpha = [-pi/1.5 0 -pi/2 pi/2 -pi/2 0];
+the = [314 -.750 0 pi/2 -pi/2 0];
+%d measured from gold rotation gear
 d = [9 0 0 1.5 3.5 5];
-%a = [-2.5 10.5 9.3 6.1 0 0];
-
-%testing these
 a = [2.5 -10.5 -9.3 -6.1 0 0];
-
 dhparams = [a',alpha',d',the'];
 
 %% Initialize Robot
@@ -87,27 +88,26 @@ addBody(robot,body6,'body5')
 figure
 showdetails(robot)
 show(robot);
-
-figure
-hold on
-scatter3(0,0,0,200,'filled','r');
-while(1)
-    %configuration = randomConfiguration(robot);
-    transform = getTransform(robot,randomConfiguration(robot),'base','body6');
-    pos = transform(:,4);
-    pos = pos(1:3);
-    if(pos(3) <0 )
-        continue
-    end
-    %values should not exceed +-1.047
-    %fprintf('%f %f %f %f %f %f\n',configuration.JointPosition);
-     scatter3(pos(1),pos(2),pos(3),100,'filled','b');
-     scatter3(0,0,0,200,'filled','r');
-    drawnow
-%     show(robot, configuration);
+% 
+% figure
+% hold on
+% scatter3(0,0,0,200,'filled','r');
+% while(1)
+%     %configuration = randomConfiguration(robot);
+%     transform = getTransform(robot,randomConfiguration(robot),'base','body6');
+%     pos = transform(:,4);
+%     pos = pos(1:3);
+%     if(pos(3) <0 )
+%         continue
+%     end
+%     %values should not exceed +-1.047
+%     %fprintf('%f %f %f %f %f %f\n',configuration.JointPosition);
+%      scatter3(pos(1),pos(2),pos(3),100,'filled','b');
+%      scatter3(0,0,0,200,'filled','r');
 %     drawnow
-    %waitforbuttonpress
-end
-
+% %     show(robot, configuration);
+% %     drawnow
+%     %waitforbuttonpress
+% end
 
 
